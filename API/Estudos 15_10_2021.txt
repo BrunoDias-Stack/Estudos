@@ -1,0 +1,48 @@
+API RESTFUL
+Uma forma de criar API seguindo um conjunto de padrões.
+
+Quais são os padrões:
+Usar Routes -> Que são as rotas dos endpoints.
+Usar Controllers/Handlers -> Que são as funções de resposta aos endpoints
+Usar Services -> Requisição de serviços, como por exemplo redis que é um serviço de cache, ou API.
+Usar Models -> Vai ficar a estrutura do banco de dados.
+
+
+Usado em html.
+A minha aplicação fará a busca pelos endpoints para me trazer as informações que preciso de uma API, utilizando os verbos GET, PUT, DELETE, PATH(alterar alguma informacao especifica em vez do objeto todo).
+ENDPOINTS
+Seria uma lista de produtos/usuarios/categorias onde consigo identificar um a um, por exemplo em uma rota products/{id}.
+
+
+Montando uma API RESTful
+1º Abrir um terminal.
+2º Iniciar o "node" na pasta, (npm init).
+3º Instalar o "hapi", (npm install --save @hapi/hapi).
+4º Criar uma pasta "src" na raiz do projeto e criar um arquivo "index.js".
+5º Usar o modelo do "hapi" que fica no endereço "https://hapi.dev/tutorials" e colar no index.
+***PESQUISAR SOBRE VARIAVEL DE AMBIENTE***
+6º Instalar nodemon como dependência de desenvolvimento usando (npm install --save-dev nodemon).
+7º Inserir dentro do arquivo "package.json" nos "scripts" de execução o método "start" e inserir o nodemon + pasta/arquivo que será execultado. ("start":"nodemon src/index.js".
+8º Criar o "routes.js" dentro de "src" quando for poucas rotas para utilização.
+9º Criar as pastas "services", "handlers" ou "controllers", "models" dentro da pasta "src".
+10º Insiro o "module.exports = []" no arquivo de "routes" criado anteriormente, e dentro desses colchetes as rotas que irei utilizar.
+11º Dentro do arquivo "index.js" faço a requisição do array do meu arquivo de rotas.(const routes = require('./routes').
+12º Para utilizar as rotas no arquivo "index.js" preciso colocar "server.route(routes)". ("server" é uma propriedade do "hapi")
+13º Definir sempre um rota padrao para quando seu site ou serviço não ser totalmente uma api, e não colocar na rota verbos como "criar", "listar", "apagar", etc. Precisa ser versionado para possiveis melhoras e evitar que um consumidor da sua api crache. ('/api/v1/products').
+14º Sempre colocar a função das rotas dentro da pasta "controllers" ou "handllers"
+***PESQUISAR SOBRE "REDIS CACHE"*** 
+15º Instalar programa "Docker" na máquina
+16º Instalar programa "Robo 3T" na máquina
+17º
+Usando Docker
+1º Com o programa "Docker" instalado, usamos o comando "docker run -p 27017:27017 --rm --name api-db -d mongo", se caso a porta 27017 estiver sendo usada, colocar outra como por exemplo 27018:27017, e o nome pode ser variado.
+2º Depois da execução do comando acima, abrimos o "Robo 3T" e vamos na opção de "create" para criar uma conexão com o MongoDB.
+18º Instalar a dependência "mongoose"
+19º Criar o arquivo "mongo.js" dentro da pasta "services" na raiz do projeto.
+20º Inserimos as informações que constam no site da mongoose "https://mongoosejs.com/" no arquivo "mongo.js"
+21º Criamos o arquivo "product.js" na pasta "models" dentro da raiz do projeto e requisitamos a dependência "mongoose"
+***ESTUDAR JSON API****
+
+
+
+
